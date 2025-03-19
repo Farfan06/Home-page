@@ -1,0 +1,214 @@
+body {
+    font-family: 'Montserrat', sans-serif; /* Establece la fuente Montserrat como principal */
+    background: #01374c; /* Color de fondo azul oscuro */
+    color: #fff; /* Color del texto en blanco */
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+}
+
+/* Header y navegación */
+header {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro con opacidad */
+    padding: 10px 0; /* Espaciado superior e inferior */
+    margin-top: 5px; /* Margen en la parte superior */
+}
+
+.container {
+    width: 90%; /* Ancho del contenedor al 90% de la pantalla */
+    margin: 0 auto; /* Centra el contenedor */
+    display: flex; /* Usa flexbox para organizar los elementos */
+    justify-content: space-between; /* Separa los elementos a los extremos */
+    align-items: center; /* Centra los elementos verticalmente */
+}
+
+.logo {
+    font-size: 1.5rem; /* Tamaño del texto del logo */
+    font-weight: 700; /* Negrita */
+    color: #fff; /* Color blanco */
+}
+
+nav {
+    padding: 10px; /* Espaciado interno de la barra de navegación */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-top: 1%; /* Margen superior */
+}
+
+nav ul {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 10px; /* Espaciado interno */
+}
+
+nav ul li {
+    display: inline; /* Hace que los elementos de la lista se muestren en línea */
+    margin-right: 20px; /* Espaciado entre los elementos del menú */
+}
+
+nav ul li a {
+    color: white; /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+}
+
+/* Carrusel */
+.carrusel {
+    position: relative; /* Permite posicionar los botones de navegación */
+    max-width: 50%; /* Limita el ancho al 50% de la pantalla */
+    margin: auto; /* Centra el carrusel */
+    overflow: hidden; /* Oculta el contenido que desborda */
+}
+
+.carrusel-imagenes {
+    display: flex; /* Muestra las imágenes en una fila */
+    transition: transform 0.5s ease; /* Agrega animación al cambiar las imágenes */
+}
+
+.carrusel-imagenes img {
+    border: 2px solid black; /* Agrega un borde negro */
+    margin-left: 25%;
+    margin-right: 25%;
+    max-width: 100%; /* Evita que la imagen se agrande demasiado */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Evita espacios extra debajo de la imagen */
+    min-width: 50%;
+    margin-top: 2%;
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Botones del carrusel */
+button.prev, button.next {
+    position: absolute; /* Posiciona los botones sobre el carrusel */
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Ajusta la posición exacta */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px; /* Espaciado interno */
+    cursor: pointer; /* Cursor de tipo puntero */
+    z-index: 1000; /* Asegura que los botones estén sobre las imágenes */
+}
+
+button.prev {
+    left: 10px; /* Posiciona el botón de retroceso a la izquierda */
+}
+
+button.next {
+    right: 10px; /* Posiciona el botón de siguiente a la derecha */
+}
+
+button.prev:hover, button.next:hover {
+    background-color: #fa5757; /* Cambia el color al pasar el cursor */
+}
+
+/* Popup de Confirmación de Edad */
+#age-popup {
+    position: fixed; /* Se mantiene fijo en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa toda la pantalla */
+    height: 100%; /* Ocupa toda la pantalla */
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo negro con opacidad */
+    display: flex; /* Usa flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    z-index: 9999; /* Asegura que esté por encima de otros elementos */
+    visibility: hidden; /* Inicialmente oculto */
+    opacity: 0; /* Transparente inicialmente */
+    transition: visibility 0.3s, opacity 0.3s; /* Agrega animación */
+}
+
+#age-popup.active {
+    visibility: visible; /* Hace visible el popup */
+    opacity: 1; /* Hace que el popup aparezca con transición */
+}
+
+.popup-content {
+    background-color: #01374c; /* Fondo azul oscuro */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    text-align: center; /* Centra el texto */
+    max-width: 400px; /* Limita el ancho */
+    width: 100%; /* Se ajusta al tamaño disponible */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Agrega sombra */
+}
+
+.popup-content h2 {
+    font-size: 1.5rem; /* Tamaño del título */
+    color: white; /* Color blanco */
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+.popup-content p {
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+.popup-content button {
+    font-family: 'Montserrat', sans-serif; /* Fuente del botón */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    margin: 5px; /* Espaciado entre botones */
+    cursor: pointer; /* Cursor de tipo puntero */
+    transition: background-color 0.3s; /* Agrega animación al color */
+    font-size: 1rem; /* Tamaño del texto */
+}
+
+.btn-confirm {
+    background-color: black; /* Fondo negro */
+    color: white; /* Texto en blanco */
+}
+
+.btn-confirm:hover {
+    background-color: #bbb; /* Cambia el color al pasar el cursor */
+}
+
+.btn-decline {
+    background-color: black; /* Fondo negro */
+    color: white; /* Texto en blanco */
+}
+
+.btn-decline:hover {
+    background-color: #bbb; /* Cambia el color al pasar el cursor */
+}
+
+/* Logo y Título */
+.logo-container {
+    display: flex; /* Usa flexbox para organizar el logo y el texto */
+    align-items: center; /* Alinea verticalmente */
+    gap: 10px; /* Espaciado entre los elementos */
+}
+
+.logo-img {
+    width: 60px; /* Tamaño de la imagen del logo */
+    height: auto; /* Mantiene la proporción */
+}
+
+.logo {
+    font-size: 1.8rem; /* Tamaño del texto */
+    font-weight: 700; /* Negrita */
+    color: #fff; /* Color blanco */
+    text-transform: uppercase; /* Convierte el texto en mayúsculas */
+}   
+
+/* Footer */
+.footer {
+    margin-top: 200px; /* Margen superior grande */
+    background-color: black; /* Fondo negro */
+    padding: 20px; /* Espaciado interno */
+    color: white; /* Color del texto */
+    text-align: center; /* Centra el texto */
+    font-size: 14px; /* Tamaño del texto */
+    position: relative; /* Mantiene su posición dentro del flujo */
+    width: 100%; /* Ocupa todo el ancho */
+}
+
+.footer h5 {
+    color: #ffffff; /* Texto en blanco */
+    font-weight: bold; /* Negrita */
+}
+
+.footer p {
+    margin: 5px 0; /* Espaciado entre párrafos */
+}
+
+h1{
+    text-align: center;
+    margin-top: 2%;
+}
